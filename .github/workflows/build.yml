@@ -20,4 +20,4 @@ jobs:
       - name: Build Plugin
         run: |
           chmod +x gradlew
-          ./gradlew buildPlugin
+          ./gradlew buildPlugin testDotNet
