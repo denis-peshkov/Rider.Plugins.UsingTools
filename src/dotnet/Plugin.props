@@ -1,0 +1,20 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <!-- See https://www.nuget.org/packages/JetBrains.ReSharper.SDK -->
+    <!-- Keep in sync with ProductVersion in gradle.properties -->
+    <SdkVersion>2024.1</SdkVersion>
+
+    <Title>UsingTools</Title>
+    <Description>Description</Description>
+
+    <Authors>Denis Peshkov</Authors>
+    <Copyright>Copyright $([System.DateTime]::Now.Year) Maintainers of UsingTools</Copyright>
+    <PackageTags>resharper plugin global using sorting</PackageTags>
+
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageIconUrl>img.png</PackageIconUrl>
+  </PropertyGroup>
+
+</Project>
