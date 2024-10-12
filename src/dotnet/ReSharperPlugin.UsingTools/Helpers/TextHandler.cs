@@ -7,6 +7,7 @@ public static class TextHandler
         var lines = new List<string>();
         var linesSystem = new List<string>();
         var linesMicrosoft = new List<string>();
+        var linesStatic = new List<string>();
         var linesAliases = new List<string>();
 
         var linesCount = document.GetLineCount();
@@ -18,13 +19,17 @@ public static class TextHandler
             {
                 linesAliases.Add(line);
             }
-            else if (line.StartsWith("global using System"))
+            else if (line.StartsWith("global using System;") || line.StartsWith("global using System."))
             {
                 linesSystem.Add(line);
             }
-            else if (line.StartsWith("global using Microsoft"))
+            else if (line.StartsWith("global using Microsoft;") || line.StartsWith("global using Microsoft."))
             {
                 linesMicrosoft.Add(line);
+            }
+            else if (line.StartsWith("global using static"))
+            {
+                linesStatic.Add(line);
             }
             else if (line.StartsWith("global using "))
             {
@@ -45,6 +50,11 @@ public static class TextHandler
             .OrderBy(x => x));
 
         uniqueSortedLines.AddRange(lines
+            .Distinct()
+            .Where(line => !string.IsNullOrWhiteSpace(line))
+            .OrderBy(x => x));
+
+        uniqueSortedLines.AddRange(linesStatic
             .Distinct()
             .Where(line => !string.IsNullOrWhiteSpace(line))
             .OrderBy(x => x));
